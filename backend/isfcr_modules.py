@@ -17,11 +17,7 @@ load_dotenv()
 # create object for VADER sentiment function interaction
 sia = SentimentIntensityAnalyzer()
 
-reddit = praw.Reddit(client_id=${client_id},
-                     client_secret=${client_secret},
-                     user_agent=${user_agent})
-
-
+reddit = praw.Reddit(client_id=${client_id}, client_secret=${client_secret}, user_agent=${user_agent})
 
 # Sentiment analysis function for TextBlob tools
 def text_blob_sentiment(review, sub_entries_textblob):
@@ -215,11 +211,3 @@ if __name__ == __main__:
 
 
 
-
-
-
-
-
-   
-
- 
