@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <body>
-          Find top 5 violating users
+          Find top 5 violating users 
         </body>
         <SearchBar/>
       </header>
