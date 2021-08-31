@@ -41,7 +41,7 @@ exports.postSubReddit = (req, res, next) => {
 
             });
             subprocess.stderr.on('close', () => {
-                // console.log('printing test')
+                console.log('printing test')
                 const status = error ? 400 : 201;
                 res.status(status).json({
                     createdProfiles: {

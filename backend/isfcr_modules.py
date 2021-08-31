@@ -11,13 +11,24 @@ from datetime import datetime
 from collections import Counter
 import time
 from dotenv import load_dotenv
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--subreddit', required=True)
+
+args = parser.parse_args()
+subreddit_297 = args.subreddit
 
 load_dotenv()
 
 # create object for VADER sentiment function interaction
 sia = SentimentIntensityAnalyzer()
 
-reddit = praw.Reddit(client_id=${client_id}, client_secret=${client_secret}, user_agent=${user_agent})
+# reddit = praw.Reddit(client_id=${client_id}, client_secret=${client_secret}, user_agent=${user_agent})
+
+reddit = praw.Reddit(client_id='MOiyQIhHGziB-Vyd7apeYQ',
+                     client_secret='4qQYz8KSiuk4yvzboh8tYWfAnp97ig',
+                     user_agent='anonymous_mask12345')
 
 # Sentiment analysis function for TextBlob tools
 def text_blob_sentiment(review, sub_entries_textblob):
@@ -91,8 +102,8 @@ def getProfile(name,avg):
   timelist = []
 
   # let people know that it's working
-  print(' --- fetching data for user: ',username,' ---')
-  print(' ')
+#   print(' --- fetching data for user: ',username,' ---')
+#   print(' ')
 
   # fetch profile data
   r3 = requests.get('https://www.reddit.com/user/'+username+'/about.json', headers=headers)
@@ -161,7 +172,7 @@ def getProfile(name,avg):
           'Neg_sent': avg } #negative sentiments in last 1000 comments
 
    
-def main_fun():
+def main_fun(subreddit):
     top_posts = reddit.subreddit('AskReddit').top('week', limit=5)
     avg=[]
     users=[]
@@ -199,15 +210,14 @@ def main_fun():
         user_profile.append(getProfile(name,average))
 
     #def flag():
-    dict(sorted(avg.items(), key=lambda item: item[1]))
+    avg = dict(sorted(avg.items(), key=lambda item: item[1]))
     #Flagged users
     for i in avg.items():
-        if i[1] >= 150:
-        flagged_profiles.append(getProfile(str(i[0]),i[1]))
+        if i[1] >= 20:
+            flagged_profiles.append(getProfile(str(i[0]),i[1]))
     return flagged_profiles
 
-if __name__ == __main__:
-    main()
 
+print(main_fun(subreddit_297))
 
 
