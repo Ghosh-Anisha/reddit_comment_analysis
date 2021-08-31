@@ -1,6 +1,6 @@
 import './App.css';
-import SearchBar from './components/search/search.js';
 import Background from './assets/bg.jpg';
+import FormUpload from './components/FormUpload/UploadImage/UploadImage.components.jsx'
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
         <body>
           Find top 5 violating users 
         </body>
-        <SearchBar/>
+        <FormUpload/>
       </header>
     </div>
   );
