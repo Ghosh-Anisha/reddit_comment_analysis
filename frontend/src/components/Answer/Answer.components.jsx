@@ -11,10 +11,7 @@ const Answer = (props) => {
         if (props.loading === "answer") {
             return (
                 <div>
-                    <p>Answer: {props.answer}</p>
-                    <button onClick={() => {navigator.clipboard.writeText(props.answer)}}>
-                        Click here to copy
-                    </button>
+                    <p>Flagged user details: {props.answer}</p>
                 </div>
             );
         }

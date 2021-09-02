@@ -15,8 +15,83 @@ label {
   align-items: center;
 }
 
+
 button {
   padding: 5px;
   width: 100px;
   border-radius: 2px;
 }
+
+body {
+  background-color: #d1f3e7;
+}
+
+
+/* form animation starts */
+.form {
+  background: #fff;
+  box-shadow: 0 30px 60px 0 rgba(90, 116, 148, 0.4);
+  border-radius: 5px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  left: 0;
+  right: 0;
+  position: absolute;
+  border-top: 5px solid #0e3721;
+/*   z-index: 1; */
+  animation: bounce 1.5s infinite;
+}
+::-webkit-input-placeholder {
+  font-size: 1.3em;
+}
+
+.title{
+  display: block;
+  font-family: sans-serif;
+  margin: 10px auto 5px;
+  width: auto;
+  color:black;
+}
+
+.name {
+  background-color: #ebebeb;
+  color: black;
+}
+.name:hover {
+  border-bottom: 5px solid;
+  height: 30px;
+  width: auto;
+  transition: ease 0.5s;
+}
+
+.submit {
+  width: 200px;
+  color: white;
+  background-color: red;
+  font-size: 20px;
+  align-content: space-around;
+  margin-top: 100px;
+}
+
+.submit:hover {
+  box-shadow: 15px 15px 15px 5px rgba(78, 72, 77, 0.219);
+  transform: translateY(-3px);
+  width: 300px;
+  border-top: 5px solid #0e3750;
+  border-radius: 0%;
+}
+
+@keyframes bounce {
+  0% {
+    tranform: translate(0, 4px);
+  }
+  50% {
+    transform: translate(0, 8px);
+  }
+} 
+
+
+

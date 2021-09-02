@@ -19,18 +19,20 @@ const UploadImage = () => {
 
     return (
             <>
-            <div className = "UploadForm">
-                <form action = "#">
-                    <div className = {classes.flex}>
-                        <label htmlFor="name">subReddit</label>
-                        <input
+            <div>
+                <form action = "#" className = {classes.form} >
+                    <div className = {classes.flex} > 
+                        <label htmlFor="name" className = {classes.title} >Enter SubReddit</label>
+                        <input 
+                            className = {classes.name} 
                             type = "text"
                             id = "name"
+                            placeholder="/r/"
                             onChange = {(event) => setsubReddit(event.target.value)}
                         />
                     </div>
                 </form>
-                <button onClick={() => send()}>Submit</button>
+                <button onClick={() => send()} className = {classes.submit} >Submit</button>
             </div>
             <Answer
                 loading = {loading}
