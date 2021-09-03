@@ -1,7 +1,7 @@
 import React from 'react';
 // import classes from './Answer.module.css';
 import Spinner from '../UI/Spinner.components.jsx';
-
+import classes from './Answer.module.css'
 
 const Answer = (props) => {
     const AnswerOrSpinnerOrNull = (props) => {
@@ -10,7 +10,7 @@ const Answer = (props) => {
         }
         if (props.loading === "answer") {
             return (
-                <div>
+                <div className={classes.ans}>
                     <p>Flagged user details: {props.answer}</p>
                 </div>
             );

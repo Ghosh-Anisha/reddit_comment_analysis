@@ -4,6 +4,19 @@ import classes from './Uploadimage.module.css';
 import {getSubReddit} from '../../../helpers/subreddit.js';
 import Answer from '../../Answer/Answer.components.jsx';
 
+// class RegExp1 extends RegExp {
+//     [Symbol.split](str, limit) {
+//       const result = RegExp.prototype[Symbol.split].call(this, str, limit);
+//       return result.map(x => `(${x})`);
+//     }
+//   }
+
+// const strip_answer = (s) => {
+//     s = s.split("[")[1]
+//     s = s.split("]")[0]
+//     return s;
+// }
+
 
 const UploadImage = () => {
     const [subReddit, setsubReddit] = useState();
@@ -13,6 +26,7 @@ const UploadImage = () => {
     const send = async () => {
         setLoading("spinner");
         const response = await getSubReddit(subReddit);
+        // const answer1 = strip_answer(response["pythonFileResponse"])
         setAnswer(response["pythonFileResponse"]);
         setLoading("answer");
     };
@@ -34,10 +48,12 @@ const UploadImage = () => {
                 </form>
                 <button onClick={() => send()} className = {classes.submit} >Submit</button>
             </div>
-            <Answer
-                loading = {loading}
-                answer = {answer}
-            />
+            <div className = {classes.ans}>
+                <Answer
+                    loading = {loading}
+                    answer = {answer}
+                />
+            </div>
             </>
     )
 }

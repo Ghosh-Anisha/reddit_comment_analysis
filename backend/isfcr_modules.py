@@ -136,12 +136,12 @@ def getProfile(name,avg):
 
 
   # set last active time
-  lastcomment = commentdata[0]['created_utc']
-  lastpost = postdata[0]['created_utc']
+#   lastcomment = commentdata[0]['created_utc']
+#   lastpost = postdata[0]['created_utc']
 
-  if lastcomment > lastpost:
-      lastaction = lastcomment
-  else: lastaction = lastpost
+#   if lastcomment > lastpost:
+#       lastaction = lastcomment
+#   else: lastaction = lastpost
 
 
   # add all subreddits to a list
@@ -163,7 +163,7 @@ def getProfile(name,avg):
 
   return {'username': str(userdata['name']),
           'creation_date': str(datetime.fromtimestamp(userdata['created_utc'])),
-          'last_action': str(datetime.fromtimestamp(lastaction)),
+        #   'last_action': str(datetime.fromtimestamp(lastaction)),
           'verified_email': str(userdata['has_verified_email']),
           'total_comments':  str(len(commentdata)),
           'comment_karma':  str(userdata['comment_karma']),
@@ -173,7 +173,7 @@ def getProfile(name,avg):
 
    
 def main_fun(subreddit):
-    top_posts = reddit.subreddit('AskReddit').top('week', limit=5)
+    top_posts = reddit.subreddit(subreddit).top('week', limit=5)
     avg=[]
     users=[]
     for post in top_posts:
@@ -213,7 +213,7 @@ def main_fun(subreddit):
     avg = dict(sorted(avg.items(), key=lambda item: item[1]))
     #Flagged users
     for i in avg.items():
-        if i[1] >= 20:
+        if i[1] >= 0:
             flagged_profiles.append(getProfile(str(i[0]),i[1]))
     return flagged_profiles
 
